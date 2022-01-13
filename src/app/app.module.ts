@@ -13,8 +13,15 @@ import { ProductAlertsComponent } from './components/product-alerts/product-aler
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './components/shipping/shipping.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +30,20 @@ import { RouterModule } from '@angular/router';
     ProductAlertsComponent,
     ProductDetailsComponent,
     ProductListComponent,
+    CartComponent,
+    ShippingComponent,
   ],
   imports: [
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'shipping', component: ShippingComponent },
     ]),
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -37,6 +51,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatBadgeModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
